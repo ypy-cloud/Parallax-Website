@@ -1,23 +1,25 @@
 // Select the class bubble
-time = document.getElementsByClassName('bubbles')[0];
+const time = document.getElementsByClassName('bubbles')[0];
 
-// padding values for desktop
-var fish2move = 100;
-var fish3move = 900;
-var fish4move = 1200;
+const fishMovements = [
+    { element: fish1, start: -0.18 * window.innerHeight, speed: 0.35 },
+    { element: fish2, start: -0.24 * window.innerHeight, speed: 0.32 },
+    { element: fish3, start: -0.3 * window.innerHeight, speed: 0.29 },
+    { element: fish4, start: -0.36 * window.innerHeight, speed: 0.26 }
+];
 
 if (screen.width < 400) {
 
     //Change transformation duration and translatey for mobile view
     time.style.setProperty('--transform-duration', '15s')
     time.style.setProperty('--transform-y', '-700vh')
-
-    // padding values for mobile
-    fish2move = 1680;
-    fish3move = 3000;
-    fish4move = 4300;
 }
 
+function setFishPosition(scrollValue) {
+    fishMovements.forEach(({ element, start, speed }) => {
+        element.style.bottom = start + scrollValue * speed + 'px';
+    });
+}
 
 
 window.addEventListener('scroll', function () {
@@ -49,12 +51,10 @@ window.addEventListener('scroll', function () {
         splash.style.top = 20 + value * -0.3 + 'px';
     }
 
-    //Move fishes horizontally
-    fish1.style.right = (value - 100) * 1 + 'px';
-    fish2.style.left = (value - fish2move) * 1 + 'px';
-    fish3.style.right = (value - fish3move) * 1 + 'px';
-    fish4.style.left = (value - fish4move) * 1 + 'px';
+    setFishPosition(value);
 })
+
+setFishPosition(window.scrollY);
 
 
 // Contains the link for all social media handles
