@@ -2,10 +2,34 @@
 const time = document.getElementsByClassName('bubbles')[0];
 
 const fishMovements = [
-    { element: fish1, start: -0.18 * window.innerHeight, speed: 0.35 },
-    { element: fish2, start: -0.24 * window.innerHeight, speed: 0.32 },
-    { element: fish3, start: -0.3 * window.innerHeight, speed: 0.29 },
-    { element: fish4, start: -0.36 * window.innerHeight, speed: 0.26 }
+    {
+        element: fish1,
+        startTop: -0.12 * window.innerHeight,
+        startLeft: -0.1 * window.innerWidth,
+        verticalSpeed: 0.32,
+        horizontalSpeed: 0.48
+    },
+    {
+        element: fish2,
+        startTop: -0.18 * window.innerHeight,
+        startLeft: -0.18 * window.innerWidth,
+        verticalSpeed: 0.29,
+        horizontalSpeed: 0.44
+    },
+    {
+        element: fish3,
+        startTop: -0.24 * window.innerHeight,
+        startLeft: -0.12 * window.innerWidth,
+        verticalSpeed: 0.26,
+        horizontalSpeed: 0.4
+    },
+    {
+        element: fish4,
+        startTop: -0.3 * window.innerHeight,
+        startLeft: -0.22 * window.innerWidth,
+        verticalSpeed: 0.24,
+        horizontalSpeed: 0.36
+    }
 ];
 
 if (screen.width < 400) {
@@ -16,8 +40,9 @@ if (screen.width < 400) {
 }
 
 function setFishPosition(scrollValue) {
-    fishMovements.forEach(({ element, start, speed }) => {
-        element.style.bottom = start + scrollValue * speed + 'px';
+    fishMovements.forEach(({ element, startTop, startLeft, verticalSpeed, horizontalSpeed }) => {
+        element.style.top = startTop + scrollValue * verticalSpeed + 'px';
+        element.style.left = startLeft + scrollValue * horizontalSpeed + 'px';
     });
 }
 

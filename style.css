@@ -230,23 +230,23 @@ section #text {
 
 /* Properties for each fish and sea bed*/
 #fish1 {
-    left: 8%;
-    bottom: -18vh;
+    left: -10vw;
+    top: -12vh;
 }
 
 #fish2 {
-    left: 28%;
-    bottom: -24vh;
+    left: -18vw;
+    top: -18vh;
 }
 
 #fish3 {
-    left: 55%;
-    bottom: -30vh;
+    left: -12vw;
+    top: -24vh;
 }
 
 #fish4 {
-    left: 75%;
-    bottom: -36vh;
+    left: -22vw;
+    top: -30vh;
 }
 
 #seabed {
